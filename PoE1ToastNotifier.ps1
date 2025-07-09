@@ -35,7 +35,9 @@ function Show-Notification {
 # Define match patterns and corresponding messages
 $conditions = @(
 ## to test if this works on your machine, remove the # from the next line and type "test" into your local chat.  don't forget to re-add the # when done.
+
 #    @{ Pattern = 'test'; Title = 'TEST POPUP MESSAGE'; Message = 'Your notifications are working!' },
+
     @{ Pattern = 'Spawning discoverable Hideout'; Title = 'HIDEOUT FOUND'; Message = 'A Hideout is in this map!' },
     @{ Pattern = 'A Reflecting Mist has manifested nearby'; Title = 'REFLECTING MIST'; Message = 'Reflecting Mist has Spawned!' },
     @{ Pattern = 'The Nameless Seer has appeared nearby'; Title = 'NAMELESS SEER'; Message = 'Nameless Seer has Spawned' }
