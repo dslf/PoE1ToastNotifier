@@ -16,7 +16,7 @@ Copy/Save the PoE1ToastNotifier.ps1 file somewhere, right click and run in power
 
 This should not require admin privelages to run as it's using native Windows features.
 
-#Screenshots:
+# Screenshots:
 
 ![](https://github.com/annedobalina/PoE1ToastNotifier/blob/main/hideout.png)
 
