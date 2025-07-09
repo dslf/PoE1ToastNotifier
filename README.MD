@@ -7,6 +7,8 @@ As it reads the client.txt file and does not interact with the game or game file
 
 I use this tool because I play a build with high visual clutter and have Global/Trade/Guild chat open (yes yes I know) and can't always see/read/tell when a the Reflecting Mist or Nameless Seer generates in the game.
 
+This is a variation of scripts cobbled from https://www.reddit.com/r/pathofexile/comments/1c7ynei/psa_hideout_farming_via_windows_powershell/ and other locations.
+
 # Usage: 
 You may have to disable windows DND settings for games
 
