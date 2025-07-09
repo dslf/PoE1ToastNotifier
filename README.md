@@ -19,6 +19,8 @@ This should not require admin privelages to run as it's using native Windows fea
 #Screenshots:
 
 ![](https://github.com/annedobalina/PoE1ToastNotifier/blob/main/hideout.png)
+![](https://github.com/annedobalina/PoE1ToastNotifier/blob/main/mist.png)
+![](https://github.com/annedobalina/PoE1ToastNotifier/blob/main/seer.png)
 
 
 
