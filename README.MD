@@ -1,5 +1,5 @@
 # PoE1ToastNotifier
-Notifier for in game events for PoE 1 (reads client.txt file, does not break TOS)
+Notifier for in game events for PoE 1 (reads client.txt file, should not break TOS)
 
 This script reads the client.txt file for Path Of Exile 1 and will generate a Toast popup if certain events are triggered.
 
