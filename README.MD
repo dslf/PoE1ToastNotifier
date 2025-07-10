@@ -14,7 +14,11 @@ You may have to disable windows DND settings for games
 
 SETTINGS > SYSTEM > FOCUS ASSIST and then under Automatic Rules/When I'm Playing a Game.
 
-Copy/Save the PoE1ToastNotifier.ps1 file somewhere, right click and run in powershell.
+Copy/Save the PoE1ToastNotifier.ps1 file somewhere.
+If you want to have custom sounds play then use the PoE1NotifierWithSounds.ps1 file instead.
+Edit the client.txt location (or sounds location if using the sound version) and save.
+
+Right click and run in powershell.
 
 This should not require admin privelages to run as it's using native Windows features.
 
