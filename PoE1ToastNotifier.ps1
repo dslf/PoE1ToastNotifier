@@ -1,10 +1,21 @@
-#This tool allows for windows native toast notification popups to occur when matching a condition read in the client.txt file for pathofexile 1.
+################################################################################################################ 
+# This tool allows for windows native toast notification popups to occur when matching a condition read in the client.txt file for pathofexile 1.
 # As it only reads the client file it does not break the TOS.
 
 # instructions: save this file as yourfilename.ps1, right click and run in powershell.
 # you may need to disable windows DND settings for it to work in-game
 # Settings > System > Focus Assist > Automatic Rules/When I'm Playing a Game - set to off.
 
+################################################################################################################ 
+#Configurable file paths
+# Path to Client.txt
+# STEAM USERS your path is normally 'C:\Program Files (x86)\Steam\steamapps\common\Path of Exile\logs\Client.txt'  
+# STANDALONG USERS your path is normally ' C:\Program Files (x86)\Grinding Gear Games\Path of Exile\logs\Client.txt'
+# Custom installation locations will have different paths.
+
+$clientLogPath = 'C:\Program Files (x86)\Steam\steamapps\common\Path of Exile\logs\Client.txt'  
+
+################################################################################################################ 
 
 function Show-Notification {
     [CmdletBinding()]
@@ -41,13 +52,14 @@ $conditions = @(
     @{ Pattern = 'Spawning discoverable Hideout'; Title = 'HIDEOUT FOUND'; Message = 'A Hideout is in this map!' },
     @{ Pattern = 'A Reflecting Mist has manifested nearby'; Title = 'REFLECTING MIST'; Message = 'Reflecting Mist has Spawned!' },
     @{ Pattern = 'The Nameless Seer has appeared nearby'; Title = 'NAMELESS SEER'; Message = 'Nameless Seer has Spawned' }
+
     # Add more conditions here, make sure to add a comma to the end of the previous line but not the last one.
     # To remove a condition, comment out with a # before the line.
 )
 
-# Monitor log file - change below to suit your location.
+# Monitor log file
 
-Get-Content 'C:\Program Files (x86)\Steam\steamapps\common\Path of Exile\logs\Client.txt' -Tail 1 -Wait | ForEach-Object {
+Get-Content $clientLogPath -Tail 1 -Wait | ForEach-Object {
     foreach ($condition in $conditions) {
         if ($_ -match $condition.Pattern) {
             Show-Notification -ToastTitle $condition.Title -ToastText $condition.Message
