@@ -1,12 +1,12 @@
-$clientLogPath = 'C:\Games\Path of exile\logs\Client.txt'  
+$clientLogPath = 'C:\Games\Path of exile\logs\Client.txt' 
 $defaultSoundFolder = Join-Path $PSScriptRoot "Sound" 
 $defaultSystemSoundFallback = $true  
 
 $conditions = @(
 
-    @{ Pattern = 'test123'; SoundFile = "test.wav" },
+    @{ Pattern = 'test123'; SoundFile = "test.wav" }, 
 
-    @{ Pattern = 'Spawning discoverable Hideout'; SoundFile = "" },
+    @{ Pattern = 'Spawning discoverable Hideout'; SoundFile = "hideout.wav" },
     @{ Pattern = 'Bring life, bring power.'; SoundFile = "penisshrine.wav" },
     @{ Pattern = 'drenched in blood.'; SoundFile = "kavetesshrine.wav" },
     @{ Pattern = 'A Reflecting Mist has manifested nearby'; SoundFile = "reflectedmist.wav" },
