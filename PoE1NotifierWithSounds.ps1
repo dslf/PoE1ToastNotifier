@@ -1,17 +1,21 @@
 $clientLogPath = 'C:\Games\Path of exile\logs\Client.txt' 
 $defaultSoundFolder = Join-Path $PSScriptRoot "Sound" 
-$defaultSystemSoundFallback = $true  
+$defaultSystemSoundFallback = $true
 
-$conditions = @(
+if (-not (Test-Path -LiteralPath $clientLogPath -PathType Leaf)) {
+    Write-Error "File not found: $clientLogPath`nPlease specify the correct file path in the script."
+    exit 1
+}
+Write-Host "Monitoring: $clientLogPath" -ForegroundColor Green
 
-    @{ Pattern = 'test123'; SoundFile = "test.wav" }, 
-
-    @{ Pattern = 'Spawning discoverable Hideout'; SoundFile = "hideout.wav" },
-    @{ Pattern = 'Bring life, bring power.'; SoundFile = "penisshrine.wav" },
-    @{ Pattern = 'drenched in blood.'; SoundFile = "kavetesshrine.wav" },
-    @{ Pattern = 'A Reflecting Mist has manifested nearby'; SoundFile = "reflectedmist.wav" },
-    @{ Pattern = 'The Nameless Seer has appeared nearby';  SoundFile = "namelesssir.wav" }
-)
+$conditions = @{
+    'test123' = 'test.wav';
+    'Spawning discoverable Hideout' = 'hideout.wav';
+    'Bring life, bring power.' = 'penisshrine.wav';
+    'drenched in blood.' = 'kavetesshrine.wav';
+    'A Reflecting Mist has manifested nearby' = 'reflectedmist.wav';
+    'The Nameless Seer has appeared nearby' = 'namelesssir.wav';
+}
 
 function Play-Sound {
     param (
@@ -30,12 +34,13 @@ function Play-Sound {
     }
 }
 
-Get-Content $clientLogPath -Tail 1 -Wait | ForEach-Object {
-    foreach ($condition in $conditions) {
-        if ($_ -match $condition.Pattern) {
-            Play-Sound -filename $condition.SoundFile
-            Write-Host $_
-            break
+Get-Content $clientLogPath -Tail 1 -Wait |
+ForEach-Object {
+    foreach ($pattern in $conditions.Keys) {
+        if ($_ -match $pattern) {
+            Write-Host $_ -ForegroundColor Yellow
+            Play-Sound -fileName $conditions[$pattern]
+            return
         }
     }
 }
