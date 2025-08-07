@@ -12,7 +12,7 @@ $conditions = @{
     'test123' = 'test.wav';
     'Spawning discoverable Hideout' = 'hideout.wav';
     'Bring life, bring power.' = 'penisshrine.wav';
-    'drenched in blood.' = 'kavetesshrine.wav';
+    'Your heart''s desire, drenched in blood.' = 'kavetesshrine.wav';
     'A Reflecting Mist has manifested nearby' = 'reflectedmist.wav';
     'The Nameless Seer has appeared nearby' = 'namelesssir.wav';
 }
